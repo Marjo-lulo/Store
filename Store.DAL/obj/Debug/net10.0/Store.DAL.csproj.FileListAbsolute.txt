@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.AssemblyInfo.cs
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\StoreManager\Store.DAL\obj\Debug\net10.0\Store.DAL.sourcelink.json

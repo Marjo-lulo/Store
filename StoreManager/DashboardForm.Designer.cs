@@ -34,7 +34,7 @@
             btn_Sales = new Button();
             Btn_Produkt = new Button();
             pictureBox1 = new PictureBox();
-            dataGridView1 = new DataGridView();
+            data = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -45,16 +45,16 @@
             dateTimePicker1 = new DateTimePicker();
             panel2 = new Panel();
             panel5 = new Panel();
-            label7 = new Label();
+            lbl_TotalSales = new Label();
             panel6 = new Panel();
-            label8 = new Label();
+            lbl_Customers = new Label();
             panel7 = new Panel();
-            label9 = new Label();
+            lbl_Orders = new Label();
             panel8 = new Panel();
-            label11 = new Label();
+            lbl_TotalProducts = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)data).BeginInit();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
@@ -95,6 +95,7 @@
             btn_Inventory.TabIndex = 4;
             btn_Inventory.Text = "Inventory";
             btn_Inventory.UseVisualStyleBackColor = true;
+            btn_Inventory.Click += btn_inventory;
             // 
             // btn_Sales
             // 
@@ -129,15 +130,15 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // dataGridView1
+            // data
             // 
-            dataGridView1.BackgroundColor = SystemColors.ButtonHighlight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(231, 391);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(566, 340);
-            dataGridView1.TabIndex = 3;
+            data.BackgroundColor = SystemColors.ButtonHighlight;
+            data.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            data.Location = new Point(231, 391);
+            data.Name = "data";
+            data.RowHeadersWidth = 51;
+            data.Size = new Size(566, 340);
+            data.TabIndex = 3;
             // 
             // label1
             // 
@@ -235,83 +236,84 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(label7);
+            panel5.Controls.Add(lbl_TotalSales);
             panel5.Controls.Add(label2);
             panel5.Location = new Point(317, 151);
             panel5.Name = "panel5";
             panel5.Size = new Size(180, 90);
             panel5.TabIndex = 10;
             // 
-            // label7
+            // lbl_TotalSales
             // 
-            label7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(27, 38);
-            label7.Name = "label7";
-            label7.Size = new Size(129, 36);
-            label7.TabIndex = 8;
-            label7.Text = "$1200 ";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_TotalSales.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_TotalSales.ForeColor = SystemColors.ButtonHighlight;
+            lbl_TotalSales.Location = new Point(27, 38);
+            lbl_TotalSales.Name = "lbl_TotalSales";
+            lbl_TotalSales.Size = new Size(129, 36);
+            lbl_TotalSales.TabIndex = 8;
+            lbl_TotalSales.Text = "$1200 ";
+            lbl_TotalSales.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
-            panel6.Controls.Add(label8);
+            panel6.Controls.Add(lbl_Customers);
             panel6.Controls.Add(label3);
             panel6.Location = new Point(317, 277);
             panel6.Name = "panel6";
             panel6.Size = new Size(180, 90);
             panel6.TabIndex = 11;
             // 
-            // label8
+            // lbl_Customers
             // 
-            label8.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(27, 45);
-            label8.Name = "label8";
-            label8.Size = new Size(129, 36);
-            label8.TabIndex = 8;
-            label8.Text = " 58 ";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_Customers.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_Customers.ForeColor = SystemColors.ButtonHighlight;
+            lbl_Customers.Location = new Point(27, 45);
+            lbl_Customers.Name = "lbl_Customers";
+            lbl_Customers.Size = new Size(129, 36);
+            lbl_Customers.TabIndex = 8;
+            lbl_Customers.Text = " 58 ";
+            lbl_Customers.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_Customers.Click += lbl_Orders_Click;
             // 
             // panel7
             // 
-            panel7.Controls.Add(label9);
+            panel7.Controls.Add(lbl_Orders);
             panel7.Controls.Add(label4);
             panel7.Location = new Point(559, 151);
             panel7.Name = "panel7";
             panel7.Size = new Size(180, 90);
             panel7.TabIndex = 12;
             // 
-            // label9
+            // lbl_Orders
             // 
-            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(27, 38);
-            label9.Name = "label9";
-            label9.Size = new Size(129, 36);
-            label9.TabIndex = 8;
-            label9.Text = "23";
-            label9.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_Orders.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_Orders.ForeColor = SystemColors.ButtonHighlight;
+            lbl_Orders.Location = new Point(27, 38);
+            lbl_Orders.Name = "lbl_Orders";
+            lbl_Orders.Size = new Size(129, 36);
+            lbl_Orders.TabIndex = 8;
+            lbl_Orders.Text = "23";
+            lbl_Orders.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel8
             // 
-            panel8.Controls.Add(label11);
+            panel8.Controls.Add(lbl_TotalProducts);
             panel8.Controls.Add(label1);
             panel8.Location = new Point(559, 277);
             panel8.Name = "panel8";
             panel8.Size = new Size(180, 90);
             panel8.TabIndex = 13;
             // 
-            // label11
+            // lbl_TotalProducts
             // 
-            label11.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.ButtonHighlight;
-            label11.Location = new Point(27, 38);
-            label11.Name = "label11";
-            label11.Size = new Size(129, 36);
-            label11.TabIndex = 8;
-            label11.Text = "320";
-            label11.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_TotalProducts.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_TotalProducts.ForeColor = SystemColors.ButtonHighlight;
+            lbl_TotalProducts.Location = new Point(27, 38);
+            lbl_TotalProducts.Name = "lbl_TotalProducts";
+            lbl_TotalProducts.Size = new Size(129, 36);
+            lbl_TotalProducts.TabIndex = 8;
+            lbl_TotalProducts.Text = "320";
+            lbl_TotalProducts.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // DashboardForm
             // 
@@ -325,14 +327,14 @@
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel2);
-            Controls.Add(dataGridView1);
+            Controls.Add(data);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "DashboardForm";
             Text = "Store -POS";
             Load += Form2_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)data).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel5.ResumeLayout(false);
@@ -347,7 +349,7 @@
         private Panel panel1;
         private Button Btn_Produkt;
         private PictureBox pictureBox1;
-        private DataGridView dataGridView1;
+        private DataGridView data;
         private Label label1;
         private Button btn_logout;
         private Button btn_Inventory;
@@ -361,12 +363,12 @@
         private DateTimePicker dateTimePicker1;
         private Panel panel2;
         private Panel panel5;
-        private Label label7;
+        private Label lbl_TotalSales;
         private Panel panel6;
-        private Label label8;
+        private Label lbl_Customers;
         private Panel panel7;
-        private Label label9;
+        private Label lbl_Orders;
         private Panel panel8;
-        private Label label11;
+        private Label lbl_TotalProducts;
     }
 }

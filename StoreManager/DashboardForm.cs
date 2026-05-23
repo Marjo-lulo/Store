@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Store.DAL;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,23 +15,34 @@ namespace StoreManager
         public DashboardForm()
         {
             InitializeComponent();
+            LoadDashboardStats();
+            LoadProductImage();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void LoadDashboardStats()
         {
+            using (var context = new StoreDbContext())
+            {
+                int totalOrders = context.Sales;
+                lbl_Orders.Text = totalOrders.ToString();
 
+                int totalCustomers = context.Clients?.Count() ?? 0;
+                lbl_Customers.Text = totalCustomers.ToString();
+
+                int totalProducts = context.Products?.Count() ?? 0;
+                lbl_TotalProducts.Text = totalProducts.ToString();
+            }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void LoadProductImage()
         {
-
+            string imagePath = Path.Combine(Application.StartupPath, "Images", "product.jpg");
+            if (File.Exists(imagePath))
+            {
+                pictureBox1.Image = Image.FromFile(imagePath);
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Sales_Click(object sender, EventArgs e)
         {
             SalesForm sf = new SalesForm();
@@ -37,14 +50,12 @@ namespace StoreManager
 
             this.Close();
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Btn_logout_Click(object sender, EventArgs e)
         {
+            LoginForm lg = new LoginForm();
+            lg.Show();
+
+            this.Close();
 
         }
 
@@ -54,6 +65,25 @@ namespace StoreManager
             p.Show();
 
             this.Close();
+        }
+
+        private void btn_inventory(object sender, EventArgs e)
+        {
+            data.Controls.Clear();
+
+            DataGridView dgv = new DataGridView();
+            dgv.Dock = DockStyle.Fill;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.BackgroundColor = Color.White;
+            dgv.BorderStyle = BorderStyle.None;
+
+            using (var context = new StoreDbContext())
+            {
+                var products = context.Products.ToList();
+                dgv.DataSource = products;
+
+            }
+            data.Controls.Add(dgv);
         }
     }
 }
